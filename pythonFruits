@@ -1,0 +1,30 @@
+num = int(input('How many fruits would you like to catch? '))
+count = 1
+
+fruitBasket = []
+
+while count <= num:
+    print("Choose a fruit to catch: ")
+    print("A = Apple, O = Orange, M = Mango, G = Guava")
+    fruit = input(f"Fruit {count} of {num}: ").lower()
+
+    if fruit == "a":
+        fruitBasket.append("Apple")
+        count += 1
+    elif fruit == "o":
+        fruitBasket.append("Orange")
+        count += 1
+    elif fruit == "m":
+        fruitBasket.append("Mango")
+        count += 1
+    elif fruit == "g":
+        fruitBasket.append("Guava")
+        count += 1
+
+print(f"Your basket now has {fruitBasket}", end=" ")
+
+while fruitBasket:
+    fruitBasket.pop() if input("Press E to eat a fruit. ").lower() == "e" else print("Invalid input.")
+    if fruitBasket:
+        print("Fruit (s) " + f"in the basket: {fruitBasket}")
+print("No more fruits.")
