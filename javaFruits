@@ -1,0 +1,62 @@
+package fruitbasket;
+
+import java.util.*;
+
+public class FruitBasket {
+    public static void main(String[] args) {
+       int i = 1;
+       int a = 0;
+       Stack basket = new Stack();
+       
+       System.out.println("Enter a number of fruits you would like to catch: ");
+       Scanner userInput = new Scanner(System.in);
+       int numberOfFruits = userInput.nextInt();
+       
+       System.out.println("Choose a fruit from the basket: ");
+       System.out.println("A = Apple, O = Orange, M = Mango, G = Guava");
+       
+       do{
+       System.out.println("Fruit(s) " + i + " of " + numberOfFruits);
+       Scanner userInput2 = new Scanner(System.in);
+       char cHarChoice = userInput2.nextLine().toLowerCase().charAt(0);
+       
+       if(cHarChoice == 'a'){
+           basket.push("Apple");
+       }
+       else if(cHarChoice == 'o'){
+           basket.push("Orange");
+       }
+       else if(cHarChoice == 'm'){
+           basket.push("Mango");
+       }
+       else if(cHarChoice == 'g'){
+           basket.push("Guava");
+       }
+
+       i++;
+}  
+       while(i <= numberOfFruits);
+       
+       
+       System.out.println("Your Basket now has " + basket); 
+       do{
+       System.out.println("Press E to eat a fruit: ");
+       Scanner userInput3 = new Scanner(System.in);
+       char eat = userInput3.nextLine().toLowerCase().charAt(0);
+       
+         if(eat == 'e'){
+           basket.pop();
+       }
+         else{
+            System.out.print("Invalid Input!");
+         }
+         System.out.println("Fruit(s) in the basket " + basket);
+         if(basket.empty()){
+             System.out.println("No more fruits in the basket "); 
+         }  
+         
+       } 
+       while(!basket.empty());
+                  
+    }  
+}
